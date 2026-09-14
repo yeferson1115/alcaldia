@@ -70,6 +70,18 @@
                                         <span class="missing_alert text-danger" id="email_alert"></span>
                                     </div>
                                 </div>
+                                <div class="col-md-6 col-12">
+                                    <div class="mb-1">
+                                        <label class="form-label" for="area_id">Dependencia</label>
+                                        <select class="form-select" id="area_id" name="area_id" required>
+                                            <option value="">Seleccione una dependencia</option>
+                                            @foreach ($areas as $area)
+                                                <option value="{{ $area->id }}">{{ $area->name }}</option>
+                                            @endforeach
+                                        </select>
+                                        <span class="missing_alert text-danger" id="area_id_alert"></span>
+                                    </div>
+                                </div>
                                 
                                 <div class="col-md-6 col-12">
                                     <div class="mb-1">
@@ -186,4 +198,3 @@
         });
     </script>
 @endpush
-

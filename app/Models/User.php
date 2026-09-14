@@ -26,8 +26,20 @@ class User extends Authenticatable
         'password',
         'gender',
         'document',
-        'status'
+        'status',
+        'area_id',
     ];
+
+    /** La dependencia desde la que el usuario puede registrar asistencia. */
+    public function area()
+    {
+        return $this->belongsTo(Areas::class, 'area_id');
+    }
+
+    public function dependency()
+    {
+        return $this->area();
+    }
 
     /**
      * The attributes that should be hidden for serialization.
@@ -47,6 +59,7 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
+        'area_id' => 'integer',
     ];
 
    

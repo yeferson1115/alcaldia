@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'Personal')
-@section('page_title', 'Areas')
+@section('page_title', 'Dependencias')
 
 
 
@@ -10,7 +10,7 @@
     <div class="content-header-left col-md-9 col-12 mb-2">
         <div class="row breadcrumbs-top">
             <div class="col-12">
-                <h2 class="content-header-title float-start mb-0">Areas</h2>
+                <h2 class="content-header-title float-start mb-0">Dependencias</h2>
                 
             </div>
         </div>
@@ -20,7 +20,7 @@
             <div class="dropdown">
             
                 @can('Crear Areas')
-                    <a href="{{ route('areas.create') }}" class="btn btn-primary mb-3"> <i class="ti ti-plus"></i> Crear Area</a>                    
+                    <a href="{{ route('areas.create') }}" class="btn btn-primary mb-3"> <i class="ti ti-plus"></i> Crear Dependencia</a>
                 @endcan
             </div>
         </div>
@@ -47,6 +47,7 @@
                                     <th>#</th>
                                     <th>Nombre</th>
                                     <th>Estado</th>                                    
+                                    <th>Asistencia</th>
                                     <th>Acciones</th>
                                 </tr>
                             </thead>
@@ -145,6 +146,13 @@ $(document).ready(function() {
         "searchable": true
         },       
         {
+        name: "can_take_attendance_from_any_dependency",
+        data: "can_take_attendance_from_any_dependency",
+        render: function (data) {
+            return data ? "<span class='badge rounded-pill bg-info'>Cualquier dependencia</span>" : "<span class='badge rounded-pill bg-secondary'>Solo la propia</span>";
+        }
+        },
+        {
             data: 'action', 
             name: 'action', 
             orderable: true, 
@@ -187,4 +195,3 @@ $(document).ready(function() {
 </script>
 
 @endpush
-

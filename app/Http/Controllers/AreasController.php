@@ -37,6 +37,7 @@ class AreasController extends Controller
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:255',
             'state' => 'required|numeric',
+            'can_take_attendance_from_any_dependency' => 'nullable|boolean',
         ]);
     
         // Si la validación falla
@@ -52,6 +53,7 @@ class AreasController extends Controller
             Areas::create([
                 'name' => $request->name,
                 'state' => $request->state,
+                'can_take_attendance_from_any_dependency' => $request->boolean('can_take_attendance_from_any_dependency'),
             ]);
     
             // Retornar respuesta de éxito
@@ -138,6 +140,7 @@ class AreasController extends Controller
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:255',
             'state' => 'required|numeric',
+            'can_take_attendance_from_any_dependency' => 'nullable|boolean',
         ]);
 
         // Si la validación falla
@@ -154,6 +157,7 @@ class AreasController extends Controller
             $area->update([
                 'name' => $request->name,
                 'state' => $request->state,
+                'can_take_attendance_from_any_dependency' => $request->boolean('can_take_attendance_from_any_dependency'),
             ]);
 
             // Retornar respuesta de éxito

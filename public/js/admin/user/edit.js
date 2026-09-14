@@ -28,6 +28,12 @@ $(document).ready(function(){
             $('#main-form #email').focus();
             return false;
         }
+
+        if ($('#main-form #area_id').val() === '') {
+            toastr.error('Seleccione una dependencia');
+            $('#main-form #area_id').focus();
+            return false;
+        }
         
 
 

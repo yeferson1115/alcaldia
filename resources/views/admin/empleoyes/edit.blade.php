@@ -29,7 +29,7 @@
                             <div class="row">
                                 <div class="col-md-6 col-12">
                                     <div class="mb-1">
-                                        <label class="form-label" for="area_id">Area</label>                                        
+                                        <label class="form-label" for="area_id">Dependencia</label>
                                         <select class="invoiceto1 form-select customer" id="area_id" name="area_id" readonly>
                                             <option value="">Seleccione</option>                                            
                                             @foreach ($areas as $item)

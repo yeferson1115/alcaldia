@@ -64,7 +64,7 @@
                       <li class="menu-item">
                         <a href="/areas" class="menu-link">
                           <i class="menu-icon fa-solid fa-users-rays"></i>
-                          <div data-i18n="Areas">Areas</div>
+                          <div data-i18n="Dependencias">Dependencias</div>
                         </a>
                       </li>
                       @endcan
@@ -103,14 +103,12 @@
                   </li>
                   @endcan
                   @can('Scaner QR')
-                  @if(auth()->user()->id==1 || auth()->user()->id==2 || auth()->user()->id==3 || auth()->user()->id==4 || auth()->user()->id==5 || auth()->user()->id==6 || auth()->user()->id==7 || auth()->user()->id==8 || auth()->user()->id==9)
                   <li class="menu-item">
                     <a href="/scanner-entradas-salidas" class="menu-link">
                       <i class="menu-icon fa-solid fa-qrcode"></i>
                       <div data-i18n="Scanear Entradas y salidas">Scanear Entradas y salidas</div>
                     </a>
                   </li>
-                  @endif
                   @endcan
                   @can('Reportes')
                   <li class="menu-item">
@@ -163,4 +161,3 @@
 
 
 <!-- Authentication -->
-
