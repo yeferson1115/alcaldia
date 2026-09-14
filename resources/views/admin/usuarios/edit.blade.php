@@ -88,6 +88,17 @@
                                         @enderror
                                     </div>
                                 </div>
+                                <div class="col-md-6 col-12">
+                                    <div class="mb-1">
+                                        <label class="form-label" for="area_id">Dependencia</label>
+                                        <select class="form-select" id="area_id" name="area_id" required>
+                                            <option value="">Seleccione una dependencia</option>
+                                            @foreach ($areas as $area)
+                                                <option value="{{ $area->id }}" {{ (int) $user->area_id === $area->id ? 'selected' : '' }}>{{ $area->name }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
                                 
                                 @if(Auth::user()->hasrole('Admin') && Auth::user()->id != $user->id)
                                 <div class="col-md-6 col-12">

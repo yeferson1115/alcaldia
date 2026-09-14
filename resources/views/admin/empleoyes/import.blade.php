@@ -48,13 +48,13 @@
                             <div class="accordion-item">
                                 <h2 class="accordion-header" id="headingOne">
                                     <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                        Codigos Areas
+                                        Codigos Dependencias
                                     </button>
                                 </h2>
                                 <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                                     <div class="accordion-body">
                                         <div class="alert alert-warning mt-4" role="alert" style="padding: 7px;">
-                                            En la columna <strong>area_id</strong> del archivo, debe ingresar el número correspondiente a la columna <strong>id</strong> del <strong>area</strong> correspondiente de la siguiente tabla:
+                                            En la columna <strong>area_id</strong> del archivo, debe ingresar el número correspondiente a la columna <strong>id</strong> de la <strong>dependencia</strong> correspondiente de la siguiente tabla:
                                         </div>
                                         <table class="table mt-1">
                                             <thead>

@@ -9,6 +9,7 @@ use App\Http\Requests\UpdateUser;
 use App\Models\Log\LogSistema;
 use Illuminate\Support\Facades\Hash;
 use Spatie\Permission\Models\Role;
+use App\Models\Areas;
 
 
 class UserController extends Controller
@@ -40,8 +41,9 @@ class UserController extends Controller
 
     public function create()
     {
+        $areas = Areas::where('state', 1)->orderBy('name')->get();
 
-        return view('admin.usuarios.create');
+        return view('admin.usuarios.create', compact('areas'));
     }
 
 
@@ -49,6 +51,9 @@ class UserController extends Controller
 
     public function store(Request $request)
     {
+        $request->validate([
+            'area_id' => 'required|exists:areas,id',
+        ]);
 
         $user = User::create($request->except('role'));
 
@@ -69,7 +74,9 @@ class UserController extends Controller
     public function show($id)
     {
         $user = User::find($id);
-        return view('admin.usuarios.edit', ['user' => $user]);
+        $areas = Areas::where('state', 1)->orderBy('name')->get();
+
+        return view('admin.usuarios.edit', ['user' => $user, 'areas' => $areas]);
     }
 
 
@@ -78,9 +85,10 @@ class UserController extends Controller
     public function edit($id)
     {
         $user = User::with('roles')->with('permissions')->find($id);
+        $areas = Areas::where('state', 1)->orderBy('name')->get();
         
 
-        return view('admin.usuarios.edit', ['user' => $user]);
+        return view('admin.usuarios.edit', ['user' => $user, 'areas' => $areas]);
     }
 
 
@@ -93,12 +101,14 @@ class UserController extends Controller
             'username' => 'required|unique:users,username,' . $id,
             'email' => 'required|email|unique:users,email,' . $id,
             'password' => 'nullable|string|min:8|confirmed',
+            'area_id' => 'required|exists:areas,id',
         ]);
         $user = User::findOrFail($id);
         $user->name = $request->name;
         $user->last_name = $request->last_name;
         $user->username = $request->username;
         $user->email = $request->email;
+        $user->area_id = $request->area_id;
         
         
         // Actualizar solo si la contraseña es proporcionada

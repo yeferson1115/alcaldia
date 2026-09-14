@@ -56,6 +56,22 @@ class ScannerController extends Controller
             ], 404);
         }
 
+        $scanner = $request->user()->load('area');
+
+        if (!$scanner->area_id || !$scanner->area) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'El usuario que registra la asistencia no tiene una dependencia asignada.',
+            ], 403);
+        }
+
+        if (!$scanner->area->can_take_attendance_from_any_dependency && $scanner->area_id !== $empleoye->area_id) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'No puede registrar asistencia para empleados de otra dependencia.',
+            ], 403);
+        }
+
         // Obtener la última asistencia registrada
         $ultimaAsistencia = Attendance::where('empleoye_id', $empleoye->id)
             ->latest()
@@ -184,4 +200,3 @@ class ScannerController extends Controller
         return redirect()->route('medios-de-pago.index')->with('success', 'Medio de pago eliminado exitosamente.');
     }
 }
-

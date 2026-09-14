@@ -28,6 +28,12 @@ $(document).ready(function(){
             $('#main-form #email').focus();
             return false;
         }
+
+        if ($('#main-form #area_id').val() === '') {
+            $('#main-form #area_id_alert').text('Seleccione una dependencia').show();
+            $('#main-form #area_id').focus();
+            return false;
+        }
         
 
         if (! $('#main-form #password').val().match(/^[a-zA-Z0-9\.!@#\$%\^&\*\?_~\/]{6,30}$/)) {

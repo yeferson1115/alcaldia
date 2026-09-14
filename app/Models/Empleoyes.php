@@ -17,6 +17,10 @@ class Empleoyes extends Model
     // Desactivar la auto gestión de las marcas de tiempo (si no usas created_at y updated_at)
     public $timestamps = true;
 
+    protected $casts = [
+        'area_id' => 'integer',
+    ];
+
 
     protected $fillable = [
         'area_id',
@@ -39,10 +43,15 @@ class Empleoyes extends Model
         return $this->belongsTo(Areas::class, 'area_id');
     }
 
+    /** La dependencia a la que está asignado el empleado. */
+    public function dependency()
+    {
+        return $this->area();
+    }
+
     public function charge()
     {        
         return $this->belongsTo(Role::class, 'role_id', 'id');
     }
 
 }
-

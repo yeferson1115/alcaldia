@@ -25,7 +25,12 @@ class Areas extends Model
     // Definir los campos que son asignables
     protected $fillable = [
         'name', 
-        'state'
+        'state',
+        'can_take_attendance_from_any_dependency',
+    ];
+
+    protected $casts = [
+        'can_take_attendance_from_any_dependency' => 'boolean',
     ];
 
    
