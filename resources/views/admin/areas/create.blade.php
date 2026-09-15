@@ -56,7 +56,7 @@
                             <div class="col-12">
                                 <div class="mb-3 form-check">
                                     <input class="form-check-input" type="checkbox" id="can_take_attendance_from_any_dependency" name="can_take_attendance_from_any_dependency" value="1">
-                                    <label class="form-check-label" for="can_take_attendance_from_any_dependency">Permitir que los usuarios de esta dependencia tomen asistencia de cualquier dependencia</label>
+                                    <label class="form-check-label" for="can_take_attendance_from_any_dependency">Permitir que se tomen asistencia de cualquier dependencia</label>
                                 </div>
                             </div>
                         </div>

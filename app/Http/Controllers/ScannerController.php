@@ -61,7 +61,7 @@ class ScannerController extends Controller
         if (!$scanner->area_id || !$scanner->area) {
             return response()->json([
                 'status' => 'error',
-                'message' => 'El usuario que registra la asistencia no tiene una dependencia asignada.',
+                'message' => 'El scanner que registra no tiene una dependencia asignada.',
             ], 403);
         }
 

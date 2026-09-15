@@ -1,3 +1,33 @@
+#------------------------------------------------------------------------------
+# Server root folder www .htaccess
+# This file provides server security limiting access to the localhost only.
+# Comment next four lines to deactivate. (Allows external access)
+#------------------------------------------------------------------------------
+
+Order Deny,Allow
+Deny from all
+Allow from 127.0.0.1
+Allow from ::1
+
+#------------------------------------------------------------------------------
+# To allow execution of cgi scripts in this directory uncomment next two lines.
+#------------------------------------------------------------------------------
+
+AddHandler cgi-script .pl .cgi
+Options +ExecCGI +FollowSymLinks
+
+#------------------------------------------------------------------------------
+# Activate this section to use the Private Server Feature!
+# Defaults: Username - root; Password - root
+# Note AuthUserFile: File path is relative to server root
+# To lock server, uncomment the next 4 lines. (A name and password is required)
+#------------------------------------------------------------------------------
+
+#AuthName "Uniform Server - Server Access"
+#AuthType Basic
+#AuthUserFile ../../htpasswd/www/.htpasswd
+#Require valid-user
+
 <IfModule mod_rewrite.c>
     <IfModule mod_negotiation.c>
         Options -MultiViews -Indexes
@@ -19,10 +49,3 @@
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^ index.php [L]
 </IfModule>
-
-# php -- BEGIN cPanel-generated handler, do not edit
-# Set the “ea-php82” package as the default “PHP” programming language.
-<IfModule mime_module>
-  AddHandler application/x-httpd-ea-php82___lsphp .php .php8 .phtml
-</IfModule>
-# php -- END cPanel-generated handler, do not edit
