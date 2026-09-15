@@ -44,6 +44,7 @@
                                         <th>Usuario</th>
                                         <th>Género</th>
                                         <th>Tipo</th>
+                                        <th>Dependencia</th>
                                         <th>Correo electrónico</th>
                                         <th>Acceso</th>
 
@@ -87,6 +88,7 @@
                                             @if($user->hasRole('Director(a) Recursos Humanos')) <b>Director(a) Recursos Humanos</b> @endif 
                                             @if($user->hasRole('Scaneer')) <b>Scaneer</b> @endif 
                                         </td>
+                                        <td>{{ $user->area?->name ?? 'Sin dependencia asignada' }}</td>
                                         <td>{{ $user->email  }}</td>
                                         
                                         <td>
@@ -169,4 +171,3 @@
 </script>
 
 @endpush
-

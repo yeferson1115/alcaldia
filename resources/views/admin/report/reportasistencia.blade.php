@@ -57,7 +57,7 @@
                                         <th class="sorting" >Nombre</th> 
                                         <th class="sorting" >Apellido</th> 
                                         <th class="sorting" >Documento</th> 
-                                        <th class="sorting" >Area</th>
+                                        <th class="sorting" >Dependencia</th>
                                         <th class="sorting" >Cargo</th>
                                         <th class="sorting" >Fecha</th>
                                         <th class="sorting" >Ciudad</th>
@@ -218,5 +218,4 @@ function newexportaction(e, dt, button, config) {
 </script>
 
 @endpush
-
 
