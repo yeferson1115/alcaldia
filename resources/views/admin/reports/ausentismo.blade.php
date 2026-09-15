@@ -43,7 +43,7 @@
                             <th>Fecha</th>
                             <th>Empleado</th>
                             <th>Documento</th>
-                            <th>Área</th>
+                            <th>Dependencia</th>
                             <th>Trabajado mañana</th>
                             <th>Ausente mañana</th>
                             <th>Trabajado tarde</th>

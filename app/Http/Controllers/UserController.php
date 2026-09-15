@@ -27,7 +27,7 @@ class UserController extends Controller
 
     public function index(Request $request)
     {
-        $users = User::with('roles')->with('permissions')
+        $users = User::with('roles', 'permissions', 'area')
                        ->orderBy('created_at', 'desc')
                        ->get();
 

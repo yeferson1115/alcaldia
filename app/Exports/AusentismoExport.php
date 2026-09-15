@@ -25,7 +25,7 @@ class AusentismoExport implements FromCollection, WithHeadings
             'Fecha',
             'Empleado',
             'Documento',
-            'Área',
+            'Dependencia',
             'Trabajado mañana (min)',
             'Ausente mañana (min)',
             'Trabajado tarde (min)',

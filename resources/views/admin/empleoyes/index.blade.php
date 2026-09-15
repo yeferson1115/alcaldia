@@ -46,7 +46,7 @@
                                         <th>Nombre</th>
                                         <th>Apellido</th>
                                         <th>Documento</th>
-                                        <th>Area</th>
+                                        <th>Dependencia</th>
                                         <th>Cargo</th>
                                         <th>RH</th>
                                         <th>Foto</th>
